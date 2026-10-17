@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --bg-main: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-secondary: #F5F6F8;
+  --text-primary: #000000;
+  --text-secondary: #4B5563;
+  --border-color: #D9DEE7;
+  --accent-primary: #2563EB;
+}
+
+/* ==========================================================================
+   GLOBAL TYPOGRAPHY — TIMES NEW ROMAN THROUGHOUT THE ENTIRE APPLICATION
+   ========================================================================== */
+*, *::before, *::after {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+html, body {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  font-family: "Times New Roman", Times, serif !important;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Times New Roman", Times, serif !important;
+  color: #000000 !important;
+  font-weight: 700;
+}
+
+p, span, div, label, input, select, textarea, button, table, th, td, a, code, pre, svg text {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+.font-mono, .font-display, .font-sans {
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+/* ==========================================================================
+   INPUTS, SELECTS, BUTTONS & FORM CONTROLS IN WHITE THEME
+   ========================================================================== */
+input, select, textarea {
+  background-color: #FFFFFF;
+  color: #000000;
+  border-color: #D9DEE7;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid #2563EB !important;
+  border-color: #2563EB !important;
+}
+
+/* Clean professional scrollbars for white theme */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F6F8;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9DEE7;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Print styling for PDF / passport download */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}

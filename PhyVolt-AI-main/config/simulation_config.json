@@ -1,0 +1,91 @@
+{
+  "_comment": "PhyVolt AI — PyBaMM Simulation Configuration. All thresholds are illustrative screening values for synthetic data generation. They are NOT universal battery industry standards.",
+
+  "pybamm": {
+    "supported_parameter_sets": {
+      "NMC": {
+        "param_set": "Chen2020",
+        "model": "SPM",
+        "notes": "NMC811/graphite, validated in Chen et al. 2020. Suitable for SPM at moderate C-rates."
+      },
+      "NCA": {
+        "param_set": "NCA_Kim2011",
+        "model": "SPM",
+        "notes": "NCA/graphite, Kim et al. 2011. Suitable for SPM screening."
+      },
+      "LFP": {
+        "param_set": "Prada2013",
+        "model": "SPM",
+        "notes": "LFP/graphite, Prada et al. 2013. LFP flat OCV profile; SPM approximation."
+      }
+    },
+    "unsupported_chemistries": {
+      "LTO": "No validated LTO parameter set in PyBaMM 26.x. Report as unsupported.",
+      "LCO": "No validated LCO parameter set in PyBaMM 26.x. Report as unsupported.",
+      "LMO": "No validated LMO parameter set in PyBaMM 26.x. Report as unsupported."
+    },
+    "solver": "CasadiSolver",
+    "solver_mode": "safe",
+    "rtol": 1e-6,
+    "atol": 1e-6
+  },
+
+  "pulse_test": {
+    "rest_duration_s": 30,
+    "pulse_duration_s": 120,
+    "relaxation_duration_s": 120,
+    "sampling_interval_s": 1,
+    "_timestamp_convention": "Pulse-start sample IS included. A 120-second pulse produces 121 samples (t=0 to t=120 inclusive), 120 one-second intervals.",
+    "current_sign_convention": "Positive current = discharge (positive I in PyBaMM discharge experiments)"
+  },
+
+  "dataset_generation": {
+    "default_num_cells": 5,
+    "random_seed": 42,
+    "output_dir": "data/synthetic",
+    "noise_augmentation": false,
+    "_noise_note": "No noise augmentation by default. Enable with --augment-noise flag. Uses fixed seed=42 for reproducibility.",
+    "soc_range_pct": [20, 90],
+    "temperature_range_c": [15, 35],
+    "pulse_current_range_a": [0.5, 2.0],
+    "capacity_range_ah": [2.5, 5.0]
+  },
+
+  "grading": {
+    "_note": "These are illustrative screening thresholds for synthetic data demonstration only. They do NOT constitute safety certification or industry-standard SoH criteria.",
+    "_label_source": "synthetic_rule",
+
+    "grade_A": {
+      "description": "Meets high-performance second-life screening criteria (pulse test only).",
+      "max_resistance_mohm": 35.0,
+      "min_voltage_drop_recovery_ratio": 0.82,
+      "max_voltage_drop_v": 0.15
+    },
+    "grade_B": {
+      "description": "Meets intermediate-performance criteria. Requires further evaluation before reuse decision.",
+      "max_resistance_mohm": 70.0,
+      "min_voltage_drop_recovery_ratio": 0.65,
+      "max_voltage_drop_v": 0.30
+    },
+    "grade_C": {
+      "description": "Does not meet second-life reuse screening criteria. Consider refurbishment review.",
+      "max_resistance_mohm": 120.0
+    },
+    "recycle_review": {
+      "description": "Resistance too high for any reuse pathway. Requires recycling assessment.",
+      "min_resistance_mohm": 120.0
+    },
+
+    "safety_quarantine": {
+      "description": "Safety override — takes priority over all performance grades.",
+      "_note": "In synthetic simulations, safety conditions are simulated scenarios, NOT real sensor measurements.",
+      "triggers": {
+        "max_temperature_c": 50.0,
+        "min_voltage_v": 2.5,
+        "max_voltage_v": 4.35,
+        "physical_conditions": ["swollen", "leakage_suspected", "corroded_terminals"],
+        "_gas_note": "Gas sensor thresholds apply only to LIVE HARDWARE data. Synthetic simulations cannot produce real gas readings."
+      }
+    }
+  }
+}

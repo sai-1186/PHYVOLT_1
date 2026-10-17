@@ -1,0 +1,47 @@
+{
+  "feature_columns": [
+    "estimated_resistance_mohm",
+    "voltage_drop_V",
+    "initial_soc_pct",
+    "ambient_temperature_C",
+    "pulse_current_A",
+    "rated_capacity_Ah",
+    "recovery_ratio",
+    "v_relax_1s",
+    "v_relax_10s",
+    "v_relax_60s",
+    "chem_NMC",
+    "chem_NCA",
+    "chem_LFP"
+  ],
+  "grade_classes": [
+    "GRADE_A",
+    "GRADE_B",
+    "GRADE_C",
+    "RECYCLE_REVIEW"
+  ],
+  "chemistry_baselines": {
+    "NMC": {
+      "r_healthy_mohm": 25.0,
+      "r_eol_mohm": 120.0,
+      "soh_weight_resistance": 0.65,
+      "soh_weight_recovery": 0.35
+    },
+    "NCA": {
+      "r_healthy_mohm": 70.0,
+      "r_eol_mohm": 500.0,
+      "soh_weight_resistance": 0.7,
+      "soh_weight_recovery": 0.3
+    },
+    "LFP": {
+      "r_healthy_mohm": 18.0,
+      "r_eol_mohm": 200.0,
+      "soh_weight_resistance": 0.6,
+      "soh_weight_recovery": 0.4
+    }
+  },
+  "model_files": {
+    "grade_classifier": "grade_classifier.joblib",
+    "soh_regressor": "soh_regressor.joblib"
+  }
+}

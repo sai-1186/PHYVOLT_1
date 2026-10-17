@@ -1,0 +1,6 @@
+{
+  "name": "PhyVolt AI - Battery Circularity & Diagnostic Intelligence",
+  "description": "Comprehensive triage, safety evaluation, pulse-test diagnostic intelligence, and Digital Battery Passport platform for retired EV lithium-ion battery circularity.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,134 @@
+{
+  "batch_id": "BATCH-B5C29C",
+  "created_at": "2026-10-16T15:33:24.618087+00:00",
+  "pybamm_version": "26.10.1.0",
+  "dataset_type": "SYNTHETIC",
+  "provenance_warning": "SYNTHETIC DATA \u2014 PyBaMM SIMULATION \u2014 NOT LIVE HARDWARE MEASUREMENTS. Do not mix with real ESP32 telemetry without an explicit data_source field.",
+  "generation_config": {
+    "num_cells": 5,
+    "chemistry": [
+      "NMC"
+    ],
+    "soc_range": [
+      0.2,
+      0.9
+    ],
+    "temp_range_c": [
+      15.0,
+      35.0
+    ],
+    "current_range_a": [
+      0.5,
+      2.0
+    ],
+    "pulse_duration_s": 120,
+    "relax_duration_s": 120,
+    "rest_duration_s": 30,
+    "capacity_range_ah": [
+      2.5,
+      5.0
+    ],
+    "random_seed": 42
+  },
+  "output_files": {
+    "pulse_data_csv": "data\\synthetic\\phyvolt_synthetic_pulse_data.csv",
+    "cell_summary_csv": "data\\synthetic\\phyvolt_synthetic_cell_summary.csv"
+  },
+  "simulation_run_metadata": [
+    {
+      "simulation_id": "SIM-1034CB36",
+      "chemistry": "NMC",
+      "param_set": "Chen2020",
+      "model": "Single Particle Model",
+      "pybamm_version": "26.10.1.0",
+      "created_at": "2026-10-16T15:33:20.429998+00:00",
+      "dataset_type": "SYNTHETIC",
+      "data_source": "PyBaMM simulation",
+      "provenance_note": "SYNTHETIC DATA \u2014 PyBaMM SIMULATION \u2014 NOT LIVE HARDWARE MEASUREMENTS. Do not mix with real ESP32 telemetry without explicit source field.",
+      "initial_soc": 0.7418,
+      "temperature_c": 23.78,
+      "pulse_current_a": 1.788,
+      "pulse_duration_s": 120,
+      "rest_duration_s": 30,
+      "relaxation_duration_s": 120,
+      "capacity_ah_override": 4.243,
+      "solver_status": "SUCCESS"
+    },
+    {
+      "simulation_id": "SIM-B768143D",
+      "chemistry": "NMC",
+      "param_set": "Chen2020",
+      "model": "Single Particle Model",
+      "pybamm_version": "26.10.1.0",
+      "created_at": "2026-10-16T15:33:21.469827+00:00",
+      "dataset_type": "SYNTHETIC",
+      "data_source": "PyBaMM simulation",
+      "provenance_note": "SYNTHETIC DATA \u2014 PyBaMM SIMULATION \u2014 NOT LIVE HARDWARE MEASUREMENTS. Do not mix with real ESP32 telemetry without explicit source field.",
+      "initial_soc": 0.2659,
+      "temperature_c": 34.51,
+      "pulse_current_a": 1.642,
+      "pulse_duration_s": 120,
+      "rest_duration_s": 30,
+      "relaxation_duration_s": 120,
+      "capacity_ah_override": 4.465,
+      "solver_status": "SUCCESS"
+    },
+    {
+      "simulation_id": "SIM-0C093FD4",
+      "chemistry": "NMC",
+      "param_set": "Chen2020",
+      "model": "Single Particle Model",
+      "pybamm_version": "26.10.1.0",
+      "created_at": "2026-10-16T15:33:22.480985+00:00",
+      "dataset_type": "SYNTHETIC",
+      "data_source": "PyBaMM simulation",
+      "provenance_note": "SYNTHETIC DATA \u2014 PyBaMM SIMULATION \u2014 NOT LIVE HARDWARE MEASUREMENTS. Do not mix with real ESP32 telemetry without explicit source field.",
+      "initial_soc": 0.2897,
+      "temperature_c": 24.01,
+      "pulse_current_a": 1.056,
+      "pulse_duration_s": 120,
+      "rest_duration_s": 30,
+      "relaxation_duration_s": 120,
+      "capacity_ah_override": 4.817,
+      "solver_status": "SUCCESS"
+    },
+    {
+      "simulation_id": "SIM-DDE5F268",
+      "chemistry": "NMC",
+      "param_set": "Chen2020",
+      "model": "Single Particle Model",
+      "pybamm_version": "26.10.1.0",
+      "created_at": "2026-10-16T15:33:23.512538+00:00",
+      "dataset_type": "SYNTHETIC",
+      "data_source": "PyBaMM simulation",
+      "provenance_note": "SYNTHETIC DATA \u2014 PyBaMM SIMULATION \u2014 NOT LIVE HARDWARE MEASUREMENTS. Do not mix with real ESP32 telemetry without explicit source field.",
+      "initial_soc": 0.6507,
+      "temperature_c": 31.46,
+      "pulse_current_a": 1.165,
+      "pulse_duration_s": 120,
+      "rest_duration_s": 30,
+      "relaxation_duration_s": 120,
+      "capacity_ah_override": 3.068,
+      "solver_status": "SUCCESS"
+    },
+    {
+      "simulation_id": "SIM-40793F5E",
+      "chemistry": "NMC",
+      "param_set": "Chen2020",
+      "model": "Single Particle Model",
+      "pybamm_version": "26.10.1.0",
+      "created_at": "2026-10-16T15:33:24.549318+00:00",
+      "dataset_type": "SYNTHETIC",
+      "data_source": "PyBaMM simulation",
+      "provenance_note": "SYNTHETIC DATA \u2014 PyBaMM SIMULATION \u2014 NOT LIVE HARDWARE MEASUREMENTS. Do not mix with real ESP32 telemetry without explicit source field.",
+      "initial_soc": 0.5882000000000001,
+      "temperature_c": 16.28,
+      "pulse_current_a": 1.741,
+      "pulse_duration_s": 120,
+      "rest_duration_s": 30,
+      "relaxation_duration_s": 120,
+      "capacity_ah_override": 4.079,
+      "solver_status": "SUCCESS"
+    }
+  ]
+}

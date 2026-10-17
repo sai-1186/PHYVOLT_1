@@ -1,0 +1,174 @@
+{
+  "created_at": "2026-10-17T07:38:25.096647+00:00",
+  "data_source": "data\\synthetic_v2\\phyvolt_synthetic_cell_summary.csv",
+  "dataset_type": "SYNTHETIC",
+  "provenance_warning": "Models trained on SYNTHETIC PyBaMM data ONLY. Performance on real hardware measurements is UNKNOWN and UNVALIDATED.",
+  "total_samples": 209,
+  "train_samples": 167,
+  "test_samples": 42,
+  "test_size": 0.2,
+  "random_seed": 42,
+  "feature_columns": [
+    "estimated_resistance_mohm",
+    "voltage_drop_V",
+    "initial_soc_pct",
+    "ambient_temperature_C",
+    "pulse_current_A",
+    "rated_capacity_Ah",
+    "recovery_ratio",
+    "v_relax_1s",
+    "v_relax_10s",
+    "v_relax_60s",
+    "chem_NMC",
+    "chem_NCA",
+    "chem_LFP"
+  ],
+  "grade_classes": [
+    "GRADE_A",
+    "GRADE_B",
+    "GRADE_C",
+    "RECYCLE_REVIEW"
+  ],
+  "chemistry_baselines": {
+    "NMC": {
+      "r_healthy_mohm": 25.0,
+      "r_eol_mohm": 120.0,
+      "soh_weight_resistance": 0.65,
+      "soh_weight_recovery": 0.35
+    },
+    "NCA": {
+      "r_healthy_mohm": 70.0,
+      "r_eol_mohm": 500.0,
+      "soh_weight_resistance": 0.7,
+      "soh_weight_recovery": 0.3
+    },
+    "LFP": {
+      "r_healthy_mohm": 18.0,
+      "r_eol_mohm": 200.0,
+      "soh_weight_resistance": 0.6,
+      "soh_weight_recovery": 0.4
+    }
+  },
+  "soh_label_method": "Physics-informed composite: SoH = w_r * resistance_health + w_rec * recovery_health, with chemistry-specific baselines and weights. NOT a ground-truth measurement.",
+  "grade_classifier": {
+    "algorithm": "RandomForestClassifier",
+    "n_estimators": 200,
+    "artifact_path": "models\\grade_classifier.joblib",
+    "metrics": {
+      "train_accuracy": 1.0,
+      "test_accuracy": 0.9524,
+      "test_f1_weighted": 0.9522,
+      "test_f1_macro": 0.913,
+      "confusion_matrix": [
+        [
+          3,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          22,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          12,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          3
+        ]
+      ],
+      "classification_report": {
+        "GRADE_A": {
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1-score": 0.8571428571428571,
+          "support": 4.0
+        },
+        "GRADE_B": {
+          "precision": 0.9565217391304348,
+          "recall": 1.0,
+          "f1-score": 0.9777777777777777,
+          "support": 22.0
+        },
+        "GRADE_C": {
+          "precision": 1.0,
+          "recall": 0.9230769230769231,
+          "f1-score": 0.96,
+          "support": 13.0
+        },
+        "RECYCLE_REVIEW": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1-score": 0.8571428571428571,
+          "support": 3.0
+        },
+        "accuracy": 0.9523809523809523,
+        "macro avg": {
+          "precision": 0.9266304347826086,
+          "recall": 0.9182692307692308,
+          "f1-score": 0.913015873015873,
+          "support": 42.0
+        },
+        "weighted avg": {
+          "precision": 0.9593685300207039,
+          "recall": 0.9523809523809523,
+          "f1-score": 0.9521693121693121,
+          "support": 42.0
+        }
+      },
+      "cv_f1_weighted_mean": 0.961,
+      "cv_f1_weighted_std": 0.0182,
+      "feature_importances": {
+        "estimated_resistance_mohm": 0.2855,
+        "recovery_ratio": 0.1937,
+        "initial_soc_pct": 0.1019,
+        "v_relax_1s": 0.0744,
+        "v_relax_60s": 0.0653,
+        "chem_NCA": 0.0624,
+        "v_relax_10s": 0.0616,
+        "voltage_drop_V": 0.0412,
+        "ambient_temperature_C": 0.0381,
+        "chem_NMC": 0.0294,
+        "pulse_current_A": 0.0177,
+        "rated_capacity_Ah": 0.0147,
+        "chem_LFP": 0.0141
+      }
+    }
+  },
+  "soh_regressor": {
+    "algorithm": "GradientBoostingRegressor",
+    "n_estimators": 200,
+    "artifact_path": "models\\soh_regressor.joblib",
+    "metrics": {
+      "train_mae": 0.0399,
+      "train_r2": 1.0,
+      "test_mae": 1.4538,
+      "test_rmse": 2.6411,
+      "test_r2": 0.9144,
+      "test_max_error": 12.1911,
+      "feature_importances": {
+        "estimated_resistance_mohm": 0.5996,
+        "v_relax_60s": 0.1101,
+        "recovery_ratio": 0.11,
+        "v_relax_1s": 0.0592,
+        "v_relax_10s": 0.0555,
+        "chem_LFP": 0.0192,
+        "initial_soc_pct": 0.0179,
+        "voltage_drop_V": 0.0139,
+        "rated_capacity_Ah": 0.0066,
+        "ambient_temperature_C": 0.003,
+        "chem_NMC": 0.0029,
+        "pulse_current_A": 0.0016,
+        "chem_NCA": 0.0006
+      }
+    }
+  }
+}

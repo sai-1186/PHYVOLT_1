@@ -1,0 +1,56 @@
+{
+  "generator": "PhyVolt AI Synthetic Dataset Generator",
+  "version": "1.0.0",
+  "generated_at": "2026-10-16T14:51:35.036811+00:00",
+  "config": {
+    "num_cells": 100,
+    "parameter_sets_used": [
+      "Chen2020",
+      "NCA_Kim2011",
+      "Prada2013",
+      "Ecker2015"
+    ],
+    "soc_range": [
+      0.5,
+      0.95
+    ],
+    "temperature_range_C": [
+      15.0,
+      40.0
+    ],
+    "pulse_current_A_fixed": null,
+    "pulse_duration_s": 120.0,
+    "relaxation_duration_s": 60.0,
+    "rest_duration_s": 10.0,
+    "sampling_interval_s": 1.0,
+    "add_noise": true,
+    "random_seed": 42
+  },
+  "run_report": {
+    "total_cells": 100,
+    "successful": 100,
+    "failed": 0,
+    "pulse_rows_generated": 14811,
+    "summary_rows": 100
+  },
+  "output_files": {
+    "pulse_data_csv": "C:\\Users\\saikiran\\OneDrive\\Desktop\\PhyVolt-AI-main\\PhyVolt-AI-main\\data\\synthetic\\phyvolt_synthetic_pulse_data.csv",
+    "cell_summary_csv": "C:\\Users\\saikiran\\OneDrive\\Desktop\\PhyVolt-AI-main\\PhyVolt-AI-main\\data\\synthetic\\phyvolt_synthetic_cell_summary.csv"
+  },
+  "field_documentation": {
+    "dataset_type": "Always SYNTHETIC for this generator.",
+    "data_source": "'PyBaMM simulation' or 'PyBaMM simulation + Gaussian noise' if noise was added.",
+    "reference_capacity_Ah": "NOT_AVAILABLE \u2014 SPM does not independently measure full capacity.",
+    "reference_soh_pct": "NOT_AVAILABLE \u2014 SoH is not derived from a 120-second pulse alone.",
+    "grade_label": "A/B/C/SAFETY_QUARANTINE/SIMULATION_FAILED based on synthetic rule thresholds in config/simulation_config.json.",
+    "label_source": "synthetic_rule_v1 \u2014 configuration-file rule, not a validated model or physical measurement.",
+    "temperature_C": "NULL for SPM simulations (isothermal model). Thermal output requires DFN + coupled thermal model.",
+    "pulse_resistance_method": "Ohmic drop at pulse onset: (V_initial - V_pulse[0]) / I_pulse_mean"
+  },
+  "disclaimers": [
+    "All data is SYNTHETIC. Do not mix with real hardware measurements without explicit source field.",
+    "Grade thresholds are illustrative project values, not certified industry standards.",
+    "SoH is NOT independently derived from this 120-second pulse simulation.",
+    "Safety override in simulation is a synthetic scenario \u2014 real safety requires physical sensor data."
+  ]
+}
